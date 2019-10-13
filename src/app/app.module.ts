@@ -10,6 +10,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule} from "@angular/common/http";
 import { AuthComponent } from './auth/auth.component';
+import { FormsModule} from "@angular/forms";
 
 const appRoutes :Routes = [
   {
@@ -44,7 +45,8 @@ const appRoutes :Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

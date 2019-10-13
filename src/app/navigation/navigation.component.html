@@ -1,13 +1,22 @@
 <nav class="navbar  navbar-dark bg-dark">
   <div class="container">
-    <a class="navbar-brand" href="">
+    <a class="navbar-brand" routerLink="''">
       <span > TWENTYONE</span>
     </a>
     <div >
-      <a class="navbar-brand" routerLink="/login" href="">
+      <a *ngIf="isLoggedIn" class="navbar-brand" href="#" href="">
+        <span>Home</span>
+      </a>
+      <a *ngIf="isLoggedIn" class="navbar-brand" href="#" href="">
+        <span>{{username}}</span>
+      </a>
+      <a  *ngIf="isLoggedIn" class="navbar-brand" href="">
+        <span >Logout</span>
+      </a>
+      <a *ngIf="!isLoggedIn" class="navbar-brand" routerLink="/login" href="">
         <span>Login</span>
       </a>
-      <a class="navbar-brand" routerLink="/register" href="">
+      <a  *ngIf="!isLoggedIn" class="navbar-brand" routerLink="/register" href="">
         <span > Register</span>
       </a>
     </div>

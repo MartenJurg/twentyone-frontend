@@ -7,7 +7,7 @@ import {HttpClient} from "@angular/common/http";
   providedIn: "root"
 })
 
-export class UserServise {
+export class UserService {
 
 
   constructor(private http: HttpClient) {
