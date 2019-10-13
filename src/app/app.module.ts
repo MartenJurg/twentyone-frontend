@@ -9,6 +9,7 @@ import {Router, RouterModule, Routes} from "@angular/router";
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule} from "@angular/common/http";
+import { AuthComponent } from './auth/auth.component';
 
 const appRoutes :Routes = [
   {
@@ -37,7 +38,8 @@ const appRoutes :Routes = [
     LoginComponent,
     RegisterComponent,
     NotFoundComponent,
-    HomeComponent
+    HomeComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
