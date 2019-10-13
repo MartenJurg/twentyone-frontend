@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import {Router, RouterModule, Routes} from "@angular/router";
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
+import { HttpClientModule} from "@angular/common/http";
 
 const appRoutes :Routes = [
   {
@@ -40,7 +41,8 @@ const appRoutes :Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

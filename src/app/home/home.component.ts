@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
+import {User} from "../user";
+
 
 @Component({
   selector: 'app-home',
