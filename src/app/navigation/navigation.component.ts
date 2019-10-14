@@ -20,4 +20,9 @@ export class NavigationComponent implements OnInit {
       this.username = this.tokenStorage.getUsername();
     }
   }
+
+  logout() {
+    this.tokenStorage.signOut();
+    window.location.reload();
+  }
 }

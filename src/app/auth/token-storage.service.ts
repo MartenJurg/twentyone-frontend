@@ -4,11 +4,11 @@ const USERNAME_KEY = 'AuthUsername';
 const AUTHORITY_KEY = 'AuthAuthorities';
 const ISLOGGEDIN_KEY = 'IsLoggedIn';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class TokenStorageService {
-  private roles: Array<string> = [];
+  @Injectable({
+    providedIn: 'root'
+  })
+  export class TokenStorageService {
+
   constructor() { }
 
   signOut() {
