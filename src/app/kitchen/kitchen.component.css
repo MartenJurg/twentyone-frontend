@@ -1,0 +1,23 @@
+.head {
+  text-align: center;
+  padding: 25px;
+  font-size: 30px;
+}
+
+.main {
+  text-align: center;
+}
+
+select {
+  padding: 5px 8px;
+  width: 50%;
+  background-color: white;
+  margin: 10px;
+}
+
+
+.btn {
+  background-color: white;
+  width: 25%;
+  margin-bottom: 10px;
+}

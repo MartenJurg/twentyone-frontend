@@ -67,3 +67,9 @@
   text-align: center;
   font-size: 14px;
 }
+
+.alert {
+  text-align: center;
+  color: white;
+  margin-top: 10px;
+}

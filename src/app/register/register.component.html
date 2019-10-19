@@ -1,57 +1,61 @@
-<app-navigation></app-navigation>
-
-<div class="box">
-  <form class="login-form" (submit)="onSubmit()" #f="ngForm">
-    <h1>Register</h1>
-
-    <div class="inputs">
-      <input
-        type="text"
-        id="name"
-        name="name"
-        placeholder="Name"
-        [(ngModel)]="form.name"
-      >
-    </div>
-
-    <div class="inputs">
-      <input
-        type="text"
-        id="username"
-        name="username"
-        placeholder="Username"
-        [(ngModel)]="form.username"
-      >
-    </div>
-
-    <div class="inputs">
-      <input
-        type="text"
-        id="email"
-        name="email"
-        placeholder="Email"
-        [(ngModel)]="form.email"
-      >
-    </div>
-
-    <div class="inputs">
-      <input
-        type="password"
-        id="password"
-        name="password"
-        placeholder="Password"
-        [(ngModel)]="form.password"
-      >
-    </div>
-
-    <div class="register-button">
-      <button >Sign up!</button>
-      <div *ngIf="f.submitted && isSignUpFailed" class="alert alert-warning">
-        Signup failed!<br/>{{errorMessage}}
-      </div>
-    </div>
-
-
-
-  </form>
+<div *ngIf="isSignedUp; else signupForm">
+  Your registration is successful. Please login!
 </div>
+
+<ng-template #signupForm>
+  <div class="box">
+    <form class="login-form" (submit)="onSubmit()" #f="ngForm">
+      <h1>Register</h1>
+
+      <div class="inputs">
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Name"
+          [(ngModel)]="form.name"
+        >
+      </div>
+
+      <div class="inputs">
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Username"
+          [(ngModel)]="form.username"
+        >
+      </div>
+
+      <div class="inputs">
+        <input
+          type="text"
+          id="email"
+          name="email"
+          placeholder="Email"
+          [(ngModel)]="form.email"
+        >
+      </div>
+
+      <div class="inputs">
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+          [(ngModel)]="form.password"
+        >
+      </div>
+
+      <div class="register-button">
+        <button >Sign up!</button>
+        <div *ngIf="f.submitted && isSignUpFailed" class="alert">
+          Signup failed! {{errorMessage}}
+        </div>
+      </div>
+
+
+
+    </form>
+  </div>
+</ng-template>

@@ -1,6 +1,5 @@
-<app-navigation></app-navigation>
 <div *ngIf="isLoggedIn; else loggedOut">
-  Logged in as {{username}}.
+  <app-home></app-home>
 </div>
 <ng-template #loggedOut>
   <div class="box">
@@ -27,7 +26,7 @@
 
       <div class="login-button">
         <button type="submit">Login</button>
-        <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
+        <div *ngIf="f.submitted && isLoginFailed" class="alert">
           Login failed: {{errorMessage}}
         </div>
       </div>

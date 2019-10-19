@@ -1,0 +1,25 @@
+
+.head {
+  text-align: center;
+  padding: 25px;
+  font-size: 30px;
+}
+
+.box {
+  text-align: center;
+  width: 50%;
+  padding-bottom: 20px;
+}
+
+.strength {
+  float: left;
+}
+
+.defence {
+  float: right;
+}
+
+.btn {
+  background-color: white;
+  width: 150px;
+}

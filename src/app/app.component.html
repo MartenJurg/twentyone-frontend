@@ -1,4 +1,16 @@
+<app-navigation></app-navigation>
 
+<div class="container">
+  <div *ngIf="isLoggedIn; else loggedOut">
 
+      <app-data></app-data>
+      <app-to-go></app-to-go>
+    <div class="main dark">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 
-<router-outlet></router-outlet>
+  <ng-template #loggedOut>
+    <router-outlet></router-outlet>
+  </ng-template>
+</div>

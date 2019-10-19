@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {TokenStorageService} from "../auth/token-storage.service";
-import {LoginInfo} from "../auth/login_info";
 import {SignUpInfo} from "../auth/signup_info";
 import {AuthService} from "../auth.service";
 
@@ -37,7 +36,7 @@ export class RegisterComponent implements OnInit {
       error => {
         this.isSignedUp = false;
         this.isSignUpFailed = true;
-        this.errorMessage = error.error.errorMessage
+        this.errorMessage = error.error.errorMessage;
       }
     )
 

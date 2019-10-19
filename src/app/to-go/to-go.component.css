@@ -1,0 +1,43 @@
+.dark {
+  background-color: #343a40;
+  color: white;
+}
+
+.main {
+  float: right;
+  width: 77%;
+  margin-top: 20px;
+  border-radius: 5px;
+  height: 220px;
+
+}
+
+.head {
+  text-align: center;
+  padding: 15px;
+  font-size: 25px;
+}
+
+.wheretogo-left, .wheretogo-right {
+  width: 49%;
+  text-align: center;
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.wheretogo-left {
+  float: left;
+}
+
+.wheretogo-right {
+  float: right;
+}
+
+.togo {
+  margin: 7px;
+}
+
+.togo a {
+  text-decoration: none;
+  color: #ffffff;
+}

@@ -1,15 +1,9 @@
-<app-navigation></app-navigation>
-
-
 <div *ngIf="isLoggedIn; else loggedOut">
-  Logged in as {{username}}.
+  <div class="container">
+    <app-house-data></app-house-data>
+  </div>
 </div>
-<ng-template #loggedOut>
-  <div class="login">
-    <button type="button" class="home-button">Login</button>
-  </div>
 
-  <div class="register">
-    <button type="button" class="home-button">Register</button>
-  </div>
+<ng-template #loggedOut>
+  <app-login></app-login>
 </ng-template>
