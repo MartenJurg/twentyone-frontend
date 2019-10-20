@@ -4,14 +4,10 @@
 
 
 <div class="main">
-  <select>
-    <option value="0">Select item:</option>
-    <option value="gloves">Gloves (level 0)</option>
-    <option value="hat">Hat (level 10)</option>
-    <option value="sweater">Sweater (level 30)</option>
-
+  <select (change)="onChange($event.target.value)">
+    <option *ngFor="let i of crafts">{{i.name}}</option>
   </select>
   <div>
-    <button class="btn">Craft</button>
+    <button class="btn" (click)="craft()">Craft</button>
   </div>
 </div>

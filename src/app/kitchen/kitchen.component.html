@@ -3,14 +3,11 @@
 </div>
 
 <div class="main">
-  <select>
-    <option value="0">Select item:</option>
-    <option value="dumplings">Dumplings (level 0)</option>
-    <option value="pasta">Pasta (level 10)</option>
-    <option value="duck">Duck (level 30)</option>
-
+  <select (change)="onChange($event.target.value)">
+    <option *ngFor="let i of dishes">{{i.name}}</option>
   </select>
+
   <div>
-    <button class="btn">Cook & Serve</button>
+    <button class="btn" (click)="cook()">Cook & Serve</button>
   </div>
 </div>

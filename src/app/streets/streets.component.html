@@ -6,15 +6,11 @@
 
   <div class="left">
 
-    <select>
-      <option value="0">Select item:</option>
-      <option value="Paper">Paper (level 0) 5min trip</option>
-      <option value="Watch">Watch (level 10) 1hr trip</option>
-      <option value="Phone">Phone (level 30) 5 hr trip</option>
-
+    <select (change)="onChange($event.target.value)">
+      <option *ngFor="let i of items">{{i.name}}</option>
     </select>
     <div>
-      <button class="btn">Try to steal</button>
+      <button class="btn" (click)="craft()">Try to steal</button>
     </div>
   </div>
 
@@ -24,26 +20,26 @@
     </div>
     <div>
       <div class="info-box">
-        Papers: 0 (Sells for 10)
+        Papers: {{papers}} (Sells for 10)
       </div>
       <div class="info-box">
-        Watches: 0 (Sells for 50)
+        Watches: {{watches}} (Sells for 50)
       </div>
       <div class="info-box">
-        Phones: 0 (Sells for 250)
+        Phones: {{phones}} (Sells for 250)
       </div>
       <div class="info-box">
-        Gloves: 0 (Sells for 10)
+        Gloves: {{gloves}} (Sells for 10)
       </div>
       <div class="info-box">
-        Hats: 0 (Sells for 20)
+        Hats: {{hats}} (Sells for 20)
       </div>
       <div class="info-box">
-        Sweaters: 0 (Sells for 50)
+        Sweaters: {{sweaters}} (Sells for 50)
       </div>
     </div>
     <div>
-      <button class="btn">Sell all</button>
+      <button class="btn" (click)="sell()" >Sell all</button>
     </div>
   </div>
 

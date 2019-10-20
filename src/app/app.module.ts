@@ -14,7 +14,7 @@ import { FormsModule} from "@angular/forms";
 import { DataComponent } from './data/data.component';
 import { ToGoComponent } from './to-go/to-go.component';
 import { HouseDataComponent } from './house-data/house-data.component';
-import { BankComponent } from './bank/bank.component';
+
 import { BoxingClubComponent } from './boxing-club/boxing-club.component';
 import { StreetsComponent } from './streets/streets.component';
 import { KitchenComponent } from './kitchen/kitchen.component';
@@ -33,10 +33,6 @@ const appRoutes :Routes = [
   {
     path:"pub",
     component: PubComponent
-  },
-  {
-    path:"bank",
-    component: BankComponent
   },
   {
     path:"boxing-club",
@@ -77,7 +73,6 @@ const appRoutes :Routes = [
     DataComponent,
     ToGoComponent,
     HouseDataComponent,
-    BankComponent,
     BoxingClubComponent,
     StreetsComponent,
     KitchenComponent,

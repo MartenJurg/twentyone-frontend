@@ -4,6 +4,9 @@ import {AuthService} from "../auth.service";
 import {TokenStorageService} from "../auth/token-storage.service";
 import {UserService} from "../user.service";
 import {Router} from "@angular/router";
+import {DataInfo} from "../data/data_info";
+import {SkillingService} from "../skilling.service";
+import {DataComponent} from "../data/data.component";
 
 
 @Component({
@@ -19,10 +22,12 @@ export class LoginComponent implements OnInit {
   isLoggedIn = false;
   isLoginFailed = false;
   username = "";
+  data: DataInfo;
 
   constructor(private userService: UserService,
               private authService: AuthService,
               private tokenStorage: TokenStorageService,
+              private skillService: SkillingService,
               private router: Router) { }
 
   ngOnInit() {
@@ -30,6 +35,35 @@ export class LoginComponent implements OnInit {
       this.isLoggedIn = true;
       this.username = this.tokenStorage.getUsername();
     }
+  }
+
+  createData() {
+    this.skillService.getInventory(this.username).subscribe(
+      data=> {
+        this.tokenStorage.savePapers(data.paper);
+        this.tokenStorage.saveWatches(data.watches);
+        this.tokenStorage.savePhones(data.phones);
+        this.tokenStorage.saveGloves(data.gloves);
+        this.tokenStorage.saveHats(data.hats);
+        this.tokenStorage.saveSweaters(data.sweaters);
+      }
+    )
+    this.skillService.getData(this.tokenStorage.getUsername()).subscribe(
+      data => {
+        this.data = data;
+        this.tokenStorage.saveCash(data.cash);
+        this.tokenStorage.saveHouse(data.house);
+        this.tokenStorage.saveFame(data.fame);
+        this.tokenStorage.saveStrength(data.strength);
+        this.tokenStorage.saveDefence(data.defence);
+        this.tokenStorage.saveCooking(data.cooking);
+        this.tokenStorage.saveThieving(data.thieving);
+        this.tokenStorage.saveCrafting(data.crafting);
+        this.tokenStorage.saveBeverage(data.beverage);
+      }
+    )
+
+    this.skillService
   }
 
   onSubmit() {
@@ -42,9 +76,10 @@ export class LoginComponent implements OnInit {
         this.tokenStorage.saveUsername(data.username);
         this.tokenStorage.saveLoggedIn("loggedin")
         this.username = data.username;
+        this.createData();
         //this.tokenStorage.saveAuthorities(data.authorities);
-
         this.reloadPage();
+        this.createData();
         setTimeout(() =>
           {
             this.router.navigate(['/home']);

@@ -4,3 +4,20 @@
   <span>Your house</span>
 </div>
 
+<div class="box left">
+  YOUR HOUSE LEVEL IS {{house}}
+</div>
+<div class="box right">
+  <button class="btn"(click)="upgradeHouse()">Upgrade House!</button>
+  <section *ngIf="house == 0">
+    You need 100 paper, 100 gloves and 5 000 cash to upgrade your house!
+  </section>
+  <section *ngIf="house == 1">
+    You need 100 Watches, 100 Hats and 50 000 cash to upgrade your house!
+  </section>
+  <section *ngIf="house == 2">
+    You need 100 Phones, 100 Sweaters and 500 000 cash to upgrade your house!
+  </section>
+
+</div>
+
