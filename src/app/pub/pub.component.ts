@@ -64,10 +64,12 @@ export class PubComponent implements OnInit {
             this.message2 = "You earned 50 cash";
             break
         }
-      }, error => {
+      }, error1 => {
         this.servingFailed = true;
-        this.errorMessage = "Serving failed!"
-    }
+        this.message = "Serving failed!";
+        this.message2 = "";
+
+      }
     )
   }
 

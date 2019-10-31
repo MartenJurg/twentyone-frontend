@@ -66,7 +66,8 @@ export class CraftingRoomComponent implements OnInit {
         }
       }, error1 => {
         this.craftingFailed = true;
-        this.message = "Crafting failed!"
+        this.message = "Crafting failed!";
+        this.message2 = "";
       }
     )
   }

@@ -77,7 +77,8 @@ export class StreetsComponent implements OnInit {
 
       }, error1 => {
         this.stealingFailed = true;
-        this.message = "Stealing failed!"
+        this.message = "Stealing failed!";
+        this.message2 = "";
       }
     )
   }

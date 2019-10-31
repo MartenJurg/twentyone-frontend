@@ -62,6 +62,8 @@ export class KitchenComponent implements OnInit {
         }
       }, error1 => {
         this.message = "Serving failed!";
+        this.message2 = "";
+
       }
     )
   }
