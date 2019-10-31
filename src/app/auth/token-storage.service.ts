@@ -1,4 +1,7 @@
 import {Injectable} from "@angular/core";
+import {DataInfo} from "../data/data_info";
+import {InventoryInfo} from "../data/invenory_info";
+import {SkillingService} from "../skilling.service";
 
 const USERNAME_KEY = 'AuthUsername';
 const AUTHORITY_KEY = 'AuthAuthorities';
@@ -25,7 +28,46 @@ const SWEATERS_KEY = 'Sweater';
   })
   export class TokenStorageService {
 
-  constructor() { }
+  constructor(private skillService: SkillingService) { }
+
+  public updateDataAndInventory() {
+    this.updateData();
+    this.updateInventory();
+  }
+
+  public updateData() {
+    this.skillService.getData(this.getUsername()).subscribe( data => {
+      this.saveData(data)
+    })
+  }
+
+  public updateInventory() {
+    this.skillService.getInventory(this.getUsername()).subscribe( data => {
+      this.saveInventory(data)
+    })
+  }
+
+  public saveInventory(inventory: InventoryInfo) {
+    this.savePapers(inventory.paper);
+    this.saveWatches(inventory.watches);
+    this.savePhones(inventory.phones);
+    this.saveGloves(inventory.gloves);
+    this.saveHats(inventory.hats);
+    this.saveSweaters(inventory.sweaters);
+
+  }
+
+  public saveData(data: DataInfo) {
+    this.saveCash(data.cash);
+    this.saveHouse(data.house);
+    this.saveFame(data.fame);
+    this.saveStrength(data.strength);
+    this.saveDefence(data.defence);
+    this.saveCooking(data.cooking);
+    this.saveThieving(data.thieving);
+    this.saveCrafting(data.crafting);
+    this.saveBeverage(data.beverage);
+  }
 
   signOut() {
     window.sessionStorage.clear();

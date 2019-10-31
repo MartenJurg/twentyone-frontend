@@ -14,11 +14,12 @@ export class HouseDataComponent implements OnInit {
 
   ngOnInit() {
     this.house = this.tokenService.getHouse();
+    this.tokenService.updateDataAndInventory();
   }
 
   upgradeHouse() {
     this.skillsService.upgradeHouse(this.tokenService.getUsername()).subscribe(data=> {
-
+      this.tokenService.updateDataAndInventory();
     })
   }
 

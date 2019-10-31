@@ -12,6 +12,8 @@ export class PubComponent implements OnInit {
 
   beverages = [{name: "Water (level 0)"}, {name: "Apple Juice (level 10)"}, {name: "Gin Tonic (level 30)"}];
   value = "water";
+  message = "";
+  message2 = "";
   pubForm: SkillForm;
   errorMessage: string;
   servingFailed = false;
@@ -44,20 +46,24 @@ export class PubComponent implements OnInit {
     this.pubForm = new SkillForm(this.tokenService.getUsername(), this.value);
     this.skillService.serve(this.pubForm).subscribe(
       data => {
-        this.skillService.getData(this.tokenService.getUsername()).subscribe(
-          data => {
-            this.tokenService.saveCash(data.cash);
-            this.tokenService.saveHouse(data.house);
-            this.tokenService.saveFame(data.fame);
-            this.tokenService.saveStrength(data.strength);
-            this.tokenService.saveDefence(data.defence);
-            this.tokenService.saveCooking(data.cooking);
-            this.tokenService.saveThieving(data.thieving);
-            this.tokenService.saveCrafting(data.crafting);
-            this.tokenService.saveBeverage(data.beverage);
-            this.servingFailed = false;
-          }
-        )
+        this.tokenService.updateData();
+        this.servingFailed = false;
+        this.message = data.message;
+        switch (this.value) {
+          case "water":
+            this.message2 = "You earned 5 cash";
+            this.tokenService.saveCash((Number(this.tokenService.getCash()) + 5).toString());
+            break;
+          case "applejuice":
+            this.message2 = "You earned 20 cash";
+            this.tokenService.saveCash((Number(this.tokenService.getCash()) + 20).toString());
+
+            break;
+          case "gintonic":
+            this.tokenService.saveCash((Number(this.tokenService.getCash()) + 50).toString());
+            this.message2 = "You earned 50 cash";
+            break
+        }
       }, error => {
         this.servingFailed = true;
         this.errorMessage = "Serving failed!"

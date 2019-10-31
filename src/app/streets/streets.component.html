@@ -10,7 +10,9 @@
       <option *ngFor="let i of items">{{i.name}}</option>
     </select>
     <div>
-      <button class="btn" (click)="craft()">Try to steal</button>
+      <button class="btn" (click)="steal()">Steal</button><br>
+      <span>{{message}}</span><br>
+      <span>{{message2}}</span>
     </div>
   </div>
 
@@ -20,22 +22,22 @@
     </div>
     <div>
       <div class="info-box">
-        Papers: {{papers}} (Sells for 10)
+        Papers: {{this.tokenService.getPapers()}} (Sells for 10)
       </div>
       <div class="info-box">
-        Watches: {{watches}} (Sells for 50)
+        Watches: {{this.tokenService.getWatches()}} (Sells for 50)
       </div>
       <div class="info-box">
-        Phones: {{phones}} (Sells for 250)
+        Phones: {{this.tokenService.getPhones()}} (Sells for 250)
       </div>
       <div class="info-box">
-        Gloves: {{gloves}} (Sells for 10)
+        Gloves: {{this.tokenService.getGloves()}} (Sells for 10)
       </div>
       <div class="info-box">
-        Hats: {{hats}} (Sells for 20)
+        Hats: {{this.tokenService.getHats()}} (Sells for 20)
       </div>
       <div class="info-box">
-        Sweaters: {{sweaters}} (Sells for 50)
+        Sweaters: {{this.tokenService.getSweaters()}} (Sells for 50)
       </div>
     </div>
     <div>
