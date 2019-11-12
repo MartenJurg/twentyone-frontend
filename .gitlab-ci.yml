@@ -26,4 +26,4 @@ deploy twentyone:
   script:
     - mkdir -p ~/front-deployment
     - rm -rf ~/front-deployment/*
-    - cp -r dist/angular-twentyone/. ~/front-deployment
+    - cp -r dist/front-twentyone/. ~/front-deployment
