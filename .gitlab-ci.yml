@@ -19,7 +19,6 @@ build twentyone:
     - yarn install
     - yarn run build
 
-
 deploy twentyone:
   stage: deploy
   tags:
