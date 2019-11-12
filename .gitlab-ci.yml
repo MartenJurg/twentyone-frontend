@@ -1,0 +1,29 @@
+stages:
+  - build
+  - deploy
+
+build twentyone:
+  stage: build
+  image: node:11-alpine
+  cache:
+    paths:
+      - node_modules
+  artifacts:
+    paths:
+      - dist
+  tags:
+    - twentyone
+  variables:
+    api: localhost/api
+  script:
+    - yarn install
+    - yarn run build
+
+deploy twentyone:
+  stage: deploy
+  tags:
+    - twentyone
+  script:
+    - mkdir -p ~/front-deployment
+    - rm -rf ~/front-deployment/*
+    - cp -r dist/angular-twentyone/. ~/front-deployment
