@@ -16,8 +16,8 @@ build twentyone:
   variables:
     api: localhost/api
   script:
-    - npm install
-    - npm run build
+    - yarn install
+    - yarn run build
 
 deploy twentyone:
   stage: deploy
