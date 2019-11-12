@@ -16,15 +16,14 @@ build twentyone:
   variables:
     api: localhost/api
   script:
-    - yarn install
-    - yarn run build
+    - npm install
+    - npm run build
 
 deploy twentyone:
   stage: deploy
   tags:
     - twentyone
   script:
-    - yarn global add node-gyp
     - mkdir -p ~/front-deployment
     - rm -rf ~/front-deployment/*
     - cp -r dist/angular-twentyone/. ~/front-deployment
