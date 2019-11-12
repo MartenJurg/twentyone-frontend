@@ -24,6 +24,7 @@ deploy twentyone:
   tags:
     - twentyone
   script:
+    - yarn global add node-gyp
     - mkdir -p ~/front-deployment
     - rm -rf ~/front-deployment/*
     - cp -r dist/angular-twentyone/. ~/front-deployment
