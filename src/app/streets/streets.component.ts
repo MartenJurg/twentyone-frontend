@@ -20,8 +20,8 @@ export class StreetsComponent implements OnInit {
   stealingFailed = false;
   errorMessage: string;
 
-  constructor(private tokenService : TokenStorageService,
-              private skillService: SkillingService) { }
+  constructor(public tokenService : TokenStorageService,
+              public skillService: SkillingService) { }
 
   ngOnInit() {
     this.tokenService.updateDataAndInventory();

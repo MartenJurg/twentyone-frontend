@@ -10,8 +10,8 @@ import {SkillingService} from "../skilling.service";
 export class DataComponent implements OnInit {
 
   constructor(
-    private tokenService: TokenStorageService,
-    private skillService: SkillingService,
+    public tokenService: TokenStorageService,
+    public skillService: SkillingService,
   ) { }
 
   ngOnInit() {
