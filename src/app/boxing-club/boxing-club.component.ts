@@ -18,13 +18,13 @@ export class BoxingClubComponent implements OnInit {
 
   trainStrength() {
     this.skillService.trainStrength(this.tokenService.getUsername()).subscribe(data=> {
-
+    this.tokenService.updateDataAndInventory();
     })
   }
 
   trainDefence() {
     this.skillService.trainDefence(this.tokenService.getUsername()).subscribe(data=> {
-
+    this.tokenService.updateDataAndInventory();
     })
   }
 }

@@ -39,3 +39,7 @@ select {
 .info-box {
   margin: 8px 15px;
 }
+
+span {
+  color: white;
+}
