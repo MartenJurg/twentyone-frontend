@@ -28,6 +28,7 @@ export class RegisterComponent implements OnInit {
       data => {
         this.isSignedUp = true;
         this.isSignUpFailed = false;
+        window.location.assign("/login");
       },
       error => {
         this.isSignedUp = false;
