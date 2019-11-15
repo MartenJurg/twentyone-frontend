@@ -12,6 +12,7 @@ export class CraftingRoomComponent implements OnInit {
 
   crafts = [{name: "Gloves (level 0)"}, {name: "Hat (level 10)"}, {name: "Sweater (level 30)"}];
   value = "gloves";
+  valueToBack = "";
   message = "";
   message2 = "";
   craftingForm: SkillForm;
@@ -34,22 +35,22 @@ export class CraftingRoomComponent implements OnInit {
   craft() {
     switch (this.value) {
       case "Hat (level 10)" :
-        this.value = "hat";
+        this.valueToBack = "hat";
         break;
       case "Sweater (level 30)" :
-        this.value = "sweater";
+        this.valueToBack = "sweater";
         break;
       default:
-        this.value = "gloves";
+        this.valueToBack = "gloves";
     }
 
-    this.craftingForm = new SkillForm(this.tokenService.getUsername(), this.value);
+    this.craftingForm = new SkillForm(this.tokenService.getUsername(), this.valueToBack);
     this.skillService.craft(this.craftingForm).subscribe(
       data => {
         this.tokenService.updateDataAndInventory();
         this.craftingFailed = false;
         this.message = data.message;
-        switch (this.value) {
+        switch (this.valueToBack) {
           case "gloves":
             this.tokenService.saveGloves((Number(this.tokenService.getGloves()) + 1).toString());
 

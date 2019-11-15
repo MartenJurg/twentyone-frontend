@@ -13,6 +13,7 @@ export class StreetsComponent implements OnInit {
 
   items = [{name: "Papers (level 0)"}, {name: "Watches (level 10)"}, {name: "Phones (level 30)"}];
   value = "";
+  valueToBack = "";
   message = "";
   message2 = "";
   amount = 0;
@@ -45,22 +46,22 @@ export class StreetsComponent implements OnInit {
   steal() {
     switch (this.value) {
       case "Watches (level 10)" :
-        this.value = "watch";
+        this.valueToBack = "watch";
         break;
       case "Phones (level 30)" :
-        this.value = "phone";
+        this.valueToBack = "phone";
         break;
       default:
-        this.value = "paper";
+        this.valueToBack = "paper";
     }
 
-    this.stealingForm = new SkillForm(this.tokenService.getUsername(), this.value)
+    this.stealingForm = new SkillForm(this.tokenService.getUsername(), this.valueToBack);
     this.skillService.steal(this.stealingForm).subscribe(
       data => {
         this.tokenService.updateDataAndInventory();
         this.stealingFailed = false;
         this.message = data.message;
-        switch (this.value) {
+        switch (this.valueToBack) {
           case "paper":
             this.tokenService.savePapers((Number(this.tokenService.getPapers()) + 1).toString());
             this.message2 = "You now have " + this.tokenService.getPapers() + " papers!";

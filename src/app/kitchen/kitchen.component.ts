@@ -13,6 +13,7 @@ export class KitchenComponent implements OnInit {
 
   dishes = [{name: "Dumplings (level 0)"}, {name: "Pasta (level 10)"}, {name: "Duck (level 30)"}];
   value = "dumpling";
+  valueToBack = "";
   message = "";
   message2 = "";
   kitchenForm: SkillForm;
@@ -32,21 +33,21 @@ export class KitchenComponent implements OnInit {
   cook() {
     switch (this.value) {
       case "Pasta (level 10)" :
-        this.value = "pasta";
+        this.valueToBack = "pasta";
         break;
       case "Duck (level 30)" :
-        this.value = "duck";
+        this.valueToBack = "duck";
         break;
       default:
-        this.value = "dumpling";
+        this.valueToBack = "dumpling";
     }
 
-    this.kitchenForm = new SkillForm(this.tokenStorage.getUsername(), this.value);
+    this.kitchenForm = new SkillForm(this.tokenStorage.getUsername(), this.valueToBack);
     this.skillService.cook(this.kitchenForm).subscribe(
       data => {
         this.tokenStorage.updateData();
         this.message = data.message;
-        switch (this.value) {
+        switch (this.valueToBack) {
           case "dumpling":
             this.message2 = "You earned 5 cash";
             this.tokenStorage.saveCash((Number(this.tokenStorage.getCash()) + 5).toString());
