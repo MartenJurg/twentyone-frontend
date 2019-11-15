@@ -11,6 +11,7 @@
 select {
   padding: 5px 8px;
   width: 50%;
+  color: #343a40;
   background-color: white;
   margin: 10px;
 }
@@ -19,5 +20,6 @@ select {
 .btn {
   background-color: white;
   width: 25%;
+  color: #343a40;
   margin-bottom: 10px;
 }

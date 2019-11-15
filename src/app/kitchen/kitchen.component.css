@@ -13,11 +13,13 @@ select {
   width: 50%;
   background-color: white;
   margin: 10px;
+  color: #343a40;
 }
 
 
 .btn {
   background-color: white;
   width: 25%;
+  color: #343a40;
   margin-bottom: 10px;
 }

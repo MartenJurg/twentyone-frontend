@@ -5,12 +5,13 @@
     </a>
     <div >
 
-      <a *ngIf="isLoggedIn" class="navbar-brand"  routerLink="">
-        <span>{{username}}</span>
-      </a>
       <a  *ngIf="isLoggedIn" class="navbar-brand" href="" (click)="logout()">
         <span >Logout</span>
       </a>
+      <a *ngIf="isLoggedIn" class="navbar-brand"  routerLink="">
+        <span>{{username}}</span>
+      </a>
+
       <a *ngIf="!isLoggedIn" class="navbar-brand" routerLink="/login" href="">
         <span>Login</span>
       </a>

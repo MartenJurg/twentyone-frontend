@@ -1,7 +1,5 @@
 <div *ngIf="isLoggedIn; else loggedOut">
-  <div class="container">
-    <app-house-data></app-house-data>
-  </div>
+    <app-house></app-house>
 </div>
 
 <ng-template #loggedOut>
