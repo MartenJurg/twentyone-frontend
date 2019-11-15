@@ -34,13 +34,11 @@ export class StreetsComponent implements OnInit {
   }
 
   sell() {
-    this.skillService.sellCrafted(this.tokenService.getUsername()).subscribe(data=>{
-      console.log(data.message);
-    });
     this.skillService.sellThieved(this.tokenService.getUsername()).subscribe( data=> {
       console.log(data.message);
+      this.tokenService.updateDataAndInventory();
     });
-    this.tokenService.updateDataAndInventory();
+
   }
 
   steal() {
