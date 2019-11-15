@@ -40,30 +40,15 @@ export class LoginComponent implements OnInit {
   createData() {
     this.skillService.getInventory(this.username).subscribe(
       data=> {
-        this.tokenStorage.savePapers(data.paper);
-        this.tokenStorage.saveWatches(data.watches);
-        this.tokenStorage.savePhones(data.phones);
-        this.tokenStorage.saveGloves(data.gloves);
-        this.tokenStorage.saveHats(data.hats);
-        this.tokenStorage.saveSweaters(data.sweaters);
+        this.tokenStorage.saveInventory(data);
       }
     )
     this.skillService.getData(this.tokenStorage.getUsername()).subscribe(
       data => {
         this.data = data;
-        this.tokenStorage.saveCash(data.cash);
-        this.tokenStorage.saveHouse(data.house);
-        this.tokenStorage.saveFame(data.fame);
-        this.tokenStorage.saveStrength(data.strength);
-        this.tokenStorage.saveDefence(data.defence);
-        this.tokenStorage.saveCooking(data.cooking);
-        this.tokenStorage.saveThieving(data.thieving);
-        this.tokenStorage.saveCrafting(data.crafting);
-        this.tokenStorage.saveBeverage(data.beverage);
+        this.tokenStorage.saveData(data);
       }
-    )
-
-    this.skillService
+    );
   }
 
   onSubmit() {
@@ -78,7 +63,7 @@ export class LoginComponent implements OnInit {
         this.username = data.username;
         this.createData();
         //this.tokenStorage.saveAuthorities(data.authorities);
-        this.reloadPage();
+        this.locateToHome();
         this.createData();
         setTimeout(() =>
           {
@@ -92,8 +77,9 @@ export class LoginComponent implements OnInit {
       })
   }
 
-  reloadPage() {
-    window.location.reload();
+  locateToHome() {
+    window.location.assign("/");
+
   }
 
 
