@@ -12,6 +12,7 @@ export class BoxingClubComponent implements OnInit {
   constructor(private skillService: SkillingService, private tokenService: TokenStorageService) { }
 
   ngOnInit() {
+
   }
 
 
