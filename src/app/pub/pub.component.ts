@@ -11,7 +11,8 @@ import {SkillingService} from "../skilling.service";
 export class PubComponent implements OnInit {
 
   beverages = [{name: "Water (level 0)"}, {name: "Apple Juice (level 10)"}, {name: "Gin Tonic (level 30)"}];
-  value = "water";
+  value = "";
+  valuetoBack = "";
   message = "";
   message2 = "";
   pubForm: SkillForm;
@@ -34,22 +35,22 @@ export class PubComponent implements OnInit {
   serve() {
     switch (this.value) {
       case "Apple Juice (level 10)" :
-        this.value = "applejuice";
+        this.valuetoBack = "applejuice";
         break;
       case "Gin Tonic (level 30)" :
-        this.value = "gintonic";
+        this.valuetoBack = "gintonic";
         break;
       default:
-        this.value = "water";
+        this.valuetoBack = "water";
     }
 
-    this.pubForm = new SkillForm(this.tokenService.getUsername(), this.value);
+    this.pubForm = new SkillForm(this.tokenService.getUsername(), this.valuetoBack);
     this.skillService.serve(this.pubForm).subscribe(
       data => {
         this.tokenService.updateData();
         this.servingFailed = false;
         this.message = data.message;
-        switch (this.value) {
+        switch (this.valuetoBack) {
           case "water":
             this.message2 = "You earned 5 cash";
             this.tokenService.saveCash((Number(this.tokenService.getCash()) + 5).toString());
