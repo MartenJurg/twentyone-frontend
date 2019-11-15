@@ -11,7 +11,7 @@ import {SkillingService} from "../skilling.service";
 export class CraftingRoomComponent implements OnInit {
 
   crafts = [{name: "Gloves (level 0)"}, {name: "Hat (level 10)"}, {name: "Sweater (level 30)"}];
-  value = "gloves";
+  value = "";
   valueToBack = "";
   message = "";
   message2 = "";
