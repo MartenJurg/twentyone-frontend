@@ -12,7 +12,8 @@ export class HomeComponent implements OnInit {
   isLoggedIn = false;
   username = "";
 
-  constructor(private tokenStorage: TokenStorageService) { }
+  constructor(
+    private tokenStorage: TokenStorageService) { }
 
   ngOnInit() {
     if (this.tokenStorage.getLoggedIn() == "loggedin") {
