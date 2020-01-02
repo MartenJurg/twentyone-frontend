@@ -8,6 +8,11 @@
       <a  *ngIf="isLoggedIn" class="navbar-brand" href="" (click)="logout()">
         <span >Logout</span>
       </a>
+
+      <a *ngIf="isAdmin"   class="navbar-brand"  routerLink="">
+        <span>All USERS</span>
+      </a>
+
       <a *ngIf="isLoggedIn" class="navbar-brand"  routerLink="">
         <span>{{username}}</span>
       </a>
