@@ -1,0 +1,12 @@
+<div class="head">
+  All registered users!
+</div>
+
+<div class="main">
+  <div class="users" *ngFor="let i of users">
+    <span>{{i['name']}}</span>
+    <span>{{i['email']}}</span>
+    <span>{{i['role']}}</span>
+  </div>
+
+</div>

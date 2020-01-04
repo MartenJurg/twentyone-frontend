@@ -1,0 +1,19 @@
+.head {
+  text-align: center;
+  padding: 25px;
+  font-size: 30px;
+}
+
+.main {
+  text-align: center;
+  align-content: center;
+}
+
+.users {
+  margin-top: 10px;
+}
+
+span {
+  margin: 10px;
+}
+
