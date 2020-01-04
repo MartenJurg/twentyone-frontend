@@ -21,6 +21,7 @@ import { CraftingRoomComponent } from './crafting-room/crafting-room.component';
 import { HouseComponent } from './house/house.component';
 import { UsersComponent } from './users/users.component';
 
+
 const appRoutes :Routes = [
   {
     path: "login",

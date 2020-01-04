@@ -3,6 +3,7 @@ import {TokenStorageService} from "../auth/token-storage.service";
 import {SignUpInfo} from "../auth/signup_info";
 import {AuthService} from "../auth.service";
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
