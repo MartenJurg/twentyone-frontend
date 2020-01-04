@@ -19,6 +19,7 @@ import { KitchenComponent } from './kitchen/kitchen.component';
 import { PubComponent } from './pub/pub.component';
 import { CraftingRoomComponent } from './crafting-room/crafting-room.component';
 import { HouseComponent } from './house/house.component';
+import { UsersComponent } from './users/users.component';
 
 const appRoutes :Routes = [
   {
@@ -32,6 +33,10 @@ const appRoutes :Routes = [
   {
     path:"pub",
     component: PubComponent
+  },
+  {
+    path:"users",
+    component: UsersComponent
   },
   {
     path:"boxing-club",
@@ -77,6 +82,7 @@ const appRoutes :Routes = [
     PubComponent,
     CraftingRoomComponent,
     HouseComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,

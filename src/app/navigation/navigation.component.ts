@@ -15,10 +15,13 @@ export class NavigationComponent implements OnInit {
   constructor(private tokenStorage: TokenStorageService) { }
 
   ngOnInit() {
+    console.log(this.tokenStorage.getAuthority());
+    console.log(this.tokenStorage.getUsername());
     if (this.tokenStorage.getLoggedIn()) {
       this.isLoggedIn = true;
       this.username = this.tokenStorage.getUsername();
       if (this.tokenStorage.getAuthority() == "ROLE_ADMIN") {
+        console.log("HELO");
         this.isAdmin = true;
       }
     }
