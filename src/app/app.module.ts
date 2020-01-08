@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { FormsModule} from "@angular/forms";
 import {Router, RouterModule, Routes} from "@angular/router";
 
@@ -22,6 +22,8 @@ import { PubComponent } from './pub/pub.component';
 import { CraftingRoomComponent } from './crafting-room/crafting-room.component';
 import { HouseComponent } from './house/house.component';
 import { UsersComponent } from './users/users.component';
+import {ErrorInterceptor} from "./_helpers/error.interceptor";
+import {JwtInterceptor} from "./_helpers/jwt.interceptor";
 
 
 const appRoutes :Routes = [
@@ -62,7 +64,11 @@ const appRoutes :Routes = [
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

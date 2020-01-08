@@ -9,14 +9,13 @@ import {map} from 'rxjs/operators';
 })
 export class AuthService {
 
-  private currentUserSubject: BehaviorSubject<User>;
+  public currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
 
 
   constructor(private userService : UserService) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
-
   }
 
   public get currentUserValue(): User {
@@ -29,8 +28,16 @@ export class AuthService {
       .pipe(map((user: User) => {
         // store user details and jwt token in local storage to keep user logged in between page refreshes
         sessionStorage.setItem('currentUser', JSON.stringify(user));
+        sessionStorage.setItem('token', user.token);
         this.currentUserSubject.next(user);
         return user;
       }));
   }
+
+  logout() {
+    // remove user from local storage and set current user to null
+    sessionStorage.removeItem('currentUser');
+    this.currentUserSubject.next(null);
+  }
+
 }
