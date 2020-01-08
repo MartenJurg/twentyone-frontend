@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {DataInfo} from "../data/data_info";
 import {InventoryInfo} from "../data/invenory_info";
-import {SkillingService} from "../skilling.service";
+import {SkillingService} from "../_services/skilling.service";
 
 const USERNAME_KEY = 'AuthUsername';
 const AUTHORITY_KEY = 'AuthAuthorities';
@@ -202,6 +202,7 @@ const SWEATERS_KEY = 'Sweater';
   public saveCash(cash: string) {
      window.sessionStorage.removeItem(CASH_KEY);
      window.sessionStorage.setItem(CASH_KEY, cash);
+
   }
 
   public getCash(): string {

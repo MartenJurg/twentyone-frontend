@@ -1,11 +1,11 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {JwtResponseMessage} from "./jwtResponseMessage";
-import { SkillForm} from "./skill_form";
+import {JwtResponseMessage} from "../_pojos/jwtResponseMessage";
+import { SkillForm} from "../_pojos/skill_form";
 
-import {DataInfo} from "./data/data_info";
-import {InventoryInfo} from "./data/invenory_info";
+import {DataInfo} from "../data/data_info";
+import {InventoryInfo} from "../data/invenory_info";
 
 
 @Injectable({

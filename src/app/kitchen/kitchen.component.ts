@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TokenStorageService} from "../auth/token-storage.service";
-import {SkillingService} from "../skilling.service";
-import {SkillForm} from "../skill_form";
+import {SkillingService} from "../_services/skilling.service";
+import {SkillForm} from "../_pojos/skill_form";
 
 @Component({
   selector: 'app-kitchen',

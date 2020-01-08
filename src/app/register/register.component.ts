@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {TokenStorageService} from "../auth/token-storage.service";
-import {SignUpInfo} from "../auth/signup_info";
-import {AuthService} from "../auth.service";
+import {UserService} from "../_services/user.service";
+import {Router} from "@angular/router";
+import {first} from "rxjs/operators";
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 
 @Component({
@@ -12,24 +14,34 @@ import {AuthService} from "../auth.service";
 export class RegisterComponent implements OnInit {
 
   form: any = {};
-  private signUpInfo: SignUpInfo;
   isSignedUp = false;
   isSignUpFailed = false;
   errorMessage = '';
+  registerForm: FormGroup;
 
-  constructor(private tokenStorage: TokenStorageService, private authService: AuthService) { }
+  constructor(private tokenStorage: TokenStorageService,
+              private userService: UserService,
+              private router: Router,
+              private formBuilder: FormBuilder,
+  ) { }
 
   ngOnInit() {
+    this.registerForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
 
   }
 
   onSubmit() {
-    this.signUpInfo = new SignUpInfo(this.form.name, this.form.username, this.form.email, this.form.password);
-    this.authService.signUp(this.signUpInfo).subscribe(
+
+    this.userService.signUp(this.registerForm.value)
+      .pipe(first())
+      .subscribe(
       data => {
         this.isSignedUp = true;
         this.isSignUpFailed = false;
-        window.location.assign("/login");
+        this.router.navigate(['/login']);
       },
       error => {
         this.isSignedUp = false;

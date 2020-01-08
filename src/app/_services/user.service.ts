@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import {Observable} from "rxjs";
-import {User} from "./user";
+import {User} from "../_pojos/user";
 import {HttpClient} from "@angular/common/http";
 
 @Injectable({
@@ -15,5 +15,13 @@ export class UserService {
 
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>("api/users");
+  }
+
+  attemptAuth(user: User): Observable<User> {
+    return this.http.post<User>("/api/auth/login", user);
+  }
+
+  signUp(user: User): Observable<User> {
+    return this.http.post<User>("/api/auth/signup", user);
   }
 }

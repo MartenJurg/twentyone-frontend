@@ -5,6 +5,8 @@ import { FormsModule} from "@angular/forms";
 import {Router, RouterModule, Routes} from "@angular/router";
 
 import { AppComponent } from './app.component';
+import {AuthGuard} from './_helpers/auth.guard';
+import {AdminGuard} from './_helpers/admin.guard';
 import { NavigationComponent } from './navigation/navigation.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -23,47 +25,16 @@ import { UsersComponent } from './users/users.component';
 
 
 const appRoutes :Routes = [
-  {
-    path: "login",
-    component: LoginComponent
-  },
-  {
-    path: "register",
-    component: RegisterComponent
-  },
-  {
-    path:"pub",
-    component: PubComponent
-  },
-  {
-    path:"users",
-    component: UsersComponent
-  },
-  {
-    path:"boxing-club",
-    component: BoxingClubComponent
-  },
-  {
-    path:"streets",
-    component: StreetsComponent
-  },
-  {
-    path:"kitchen",
-    component: KitchenComponent
-  },
-  {
-    path:"crafting-room",
-    component: CraftingRoomComponent
-  },
-  {
-    path:"",
-    component: HomeComponent,
-    pathMatch: "full"
-  },
-  {
-    path:"**",
-    component: NotFoundComponent
-  }
+  {path: "login", component: LoginComponent},
+  {path: "register", component: RegisterComponent},
+  {path:"pub", component: PubComponent, canActivate: [AuthGuard]},
+  {path:"users", component: UsersComponent, canActivate: [AdminGuard]},
+  {path:"boxing-club", component: BoxingClubComponent, canActivate: [AuthGuard]},
+  {path:"streets", component: StreetsComponent, canActivate: [AuthGuard]},
+  {path:"kitchen", component: KitchenComponent, canActivate: [AuthGuard]},
+  {path:"crafting-room", component: CraftingRoomComponent, canActivate: [AuthGuard]},
+  {path:"", component: HomeComponent, pathMatch: "full"},
+  {path:"**", component: NotFoundComponent}
 ];
 
 @NgModule({

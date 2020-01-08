@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {SkillForm} from "../skill_form";
+import {SkillForm} from "../_pojos/skill_form";
 import {TokenStorageService} from "../auth/token-storage.service";
-import {SkillingService} from "../skilling.service";
+import {SkillingService} from "../_services/skilling.service";
 
 @Component({
   selector: 'app-crafting-room',

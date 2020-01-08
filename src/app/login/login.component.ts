@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {LoginInfo} from "../auth/login_info";
-import {AuthService} from "../auth.service";
+import {AuthService} from "../_services/auth.service";
 import {TokenStorageService} from "../auth/token-storage.service";
-import {UserService} from "../user.service";
+import {UserService} from "../_services/user.service";
 import {Router} from "@angular/router";
 import {DataInfo} from "../data/data_info";
-import {SkillingService} from "../skilling.service";
-import {DataComponent} from "../data/data.component";
+import {SkillingService} from "../_services/skilling.service";
+import {first} from "rxjs/operators";
 
 
 @Component({
@@ -17,7 +16,6 @@ import {DataComponent} from "../data/data.component";
 export class LoginComponent implements OnInit {
 
   form: any = {};
-  private loginInfo: LoginInfo;
   errorMessage = '';
   isLoggedIn = false;
   isLoginFailed = false;
@@ -52,14 +50,14 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.loginInfo = new LoginInfo(this.form.username, this.form.password);
 
-    this.authService.attemptAuth(this.loginInfo).subscribe(
+    this.authService.login(this.form.username, this.form.password)
+      .pipe(first())
+      .subscribe(
       data => {
         this.isLoggedIn = true;
         this.isLoginFailed = false;
         this.tokenStorage.saveUsername(data.username);
-        this.tokenStorage.saveAuthorities(data.rolename);
         this.tokenStorage.saveLoggedIn("loggedin")
         this.username = data.username;
         this.createData();
