@@ -3,6 +3,7 @@ export class SignupForm {
   name: string;
   username: string;
   email: string;
+  role: string;
   password: string;
 
 
@@ -11,5 +12,6 @@ export class SignupForm {
     this.username = username;
     this.email = email;
     this.password = password;
+    this.role = "ROLE_USER";
   }
 }
