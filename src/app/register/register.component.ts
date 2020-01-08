@@ -3,7 +3,7 @@ import {TokenStorageService} from "../auth/token-storage.service";
 import {UserService} from "../_services/user.service";
 import {Router} from "@angular/router";
 import {first} from "rxjs/operators";
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {SignupForm} from "../_pojos/signupform";
 
 
 @Component({
@@ -17,25 +17,24 @@ export class RegisterComponent implements OnInit {
   isSignedUp = false;
   isSignUpFailed = false;
   errorMessage = '';
-  registerForm: FormGroup;
 
   constructor(private tokenStorage: TokenStorageService,
               private userService: UserService,
               private router: Router,
-              private formBuilder: FormBuilder,
   ) { }
 
+  signupForm: SignupForm;
+
   ngOnInit() {
-    this.registerForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(6)]]
-    });
+
 
   }
 
   onSubmit() {
 
-    this.userService.signUp(this.registerForm.value)
+    this.signupForm = new SignupForm(this.form.name, this.form.username, this.form.email, this.form.password);
+
+    this.userService.signUp(this.signupForm)
       .pipe(first())
       .subscribe(
       data => {

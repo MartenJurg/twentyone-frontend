@@ -25,8 +25,8 @@ import { UsersComponent } from './users/users.component';
 
 
 const appRoutes :Routes = [
-  {path: "login", component: LoginComponent},
-  {path: "register", component: RegisterComponent},
+  {path:"login", component: LoginComponent},
+  {path:"register", component: RegisterComponent},
   {path:"pub", component: PubComponent, canActivate: [AuthGuard]},
   {path:"users", component: UsersComponent, canActivate: [AdminGuard]},
   {path:"boxing-club", component: BoxingClubComponent, canActivate: [AuthGuard]},

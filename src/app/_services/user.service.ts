@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import {Observable} from "rxjs";
 import {User} from "../_pojos/user";
 import {HttpClient} from "@angular/common/http";
+import {SignupForm} from "../_pojos/signupform";
 
 @Injectable({
   providedIn: "root"
@@ -21,7 +22,7 @@ export class UserService {
     return this.http.post<User>("/api/auth/login", user);
   }
 
-  signUp(user: User): Observable<User> {
-    return this.http.post<User>("/api/auth/signup", user);
+  signUp(signUpInfo: SignupForm): Observable<string> {
+    return this.http.post<string>("/api/auth/signup", signUpInfo);
   }
 }
