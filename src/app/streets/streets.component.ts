@@ -35,7 +35,6 @@ export class StreetsComponent implements OnInit {
 
   sell() {
     this.skillService.sellThieved(this.tokenService.getUsername()).subscribe( data=> {
-      console.log(data.message);
       this.tokenService.updateDataAndInventory();
     });
 

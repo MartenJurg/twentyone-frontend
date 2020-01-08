@@ -21,7 +21,6 @@ export class NavigationComponent implements OnInit {
       this.isLoggedIn = true;
       this.username = this.tokenStorage.getUsername();
       if (this.tokenStorage.getAuthority() == "ROLE_ADMIN") {
-        console.log("HELO");
         this.isAdmin = true;
       }
     }
