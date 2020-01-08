@@ -12,7 +12,6 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
-import { AuthComponent } from './auth/auth.component';
 import { DataComponent } from './data/data.component';
 import { ToGoComponent } from './to-go/to-go.component';
 import { BoxingClubComponent } from './boxing-club/boxing-club.component';
@@ -47,7 +46,6 @@ const appRoutes :Routes = [
     RegisterComponent,
     NotFoundComponent,
     HomeComponent,
-    AuthComponent,
     DataComponent,
     ToGoComponent,
     BoxingClubComponent,

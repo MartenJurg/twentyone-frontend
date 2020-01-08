@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 import {DataInfo} from "../data/data_info";
 import {InventoryInfo} from "../data/invenory_info";
-import {SkillingService} from "../_services/skilling.service";
+import {SkillingService} from "./skilling.service";
 
 const USERNAME_KEY = 'AuthUsername';
 const AUTHORITY_KEY = 'AuthAuthorities';

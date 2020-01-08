@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {SkillForm} from "../_pojos/skill_form";
-import {TokenStorageService} from "../auth/token-storage.service";
+import {TokenStorageService} from "../_services/token-storage.service";
 import {SkillingService} from "../_services/skilling.service";
 
 @Component({
