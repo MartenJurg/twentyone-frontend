@@ -4,8 +4,8 @@ import {Observable} from "rxjs";
 import {JwtResponseMessage} from "../_pojos/jwtResponseMessage";
 import { SkillForm} from "../_pojos/skill_form";
 
-import {DataInfo} from "../data/data_info";
-import {InventoryInfo} from "../data/invenory_info";
+import {DataInfo} from "../main/data/data_info";
+import {InventoryInfo} from "../main/data/invenory_info";
 
 
 @Injectable({

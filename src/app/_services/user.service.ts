@@ -25,4 +25,8 @@ export class UserService {
   signUp(signUpInfo: SignupForm): Observable<string> {
     return this.http.post<string>("/api/auth/signup", signUpInfo);
   }
+
+  logout(): Observable<string> {
+    return this.http.post<string>("/api/logout", "logout");
+  }
 }

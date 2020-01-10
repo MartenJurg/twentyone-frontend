@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {TokenStorageService} from "../_services/token-storage.service";
-import {SkillForm} from "../_pojos/skill_form";
-import {SkillingService} from "../_services/skilling.service";
+import {TokenStorageService} from "../../_services/token-storage.service";
+import {SkillForm} from "../../_pojos/skill_form";
+import {SkillingService} from "../../_services/skilling.service";
 
 @Component({
   selector: 'app-streets',

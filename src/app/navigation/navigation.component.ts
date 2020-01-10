@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TokenStorageService} from "../_services/token-storage.service";
+import {AuthService} from "../_services/auth.service";
 
 @Component({
   selector: 'app-navigation',
@@ -12,7 +13,8 @@ export class NavigationComponent implements OnInit {
   isLoggedIn = false;
   username = "";
 
-  constructor(private tokenStorage: TokenStorageService) { }
+  constructor(private tokenStorage: TokenStorageService,
+              private authService: AuthService) { }
 
   ngOnInit() {
     console.log(this.tokenStorage.getAuthority());
@@ -29,5 +31,6 @@ export class NavigationComponent implements OnInit {
   logout() {
     this.tokenStorage.signOut();
     window.location.reload();
+    this.authService.logout();
   }
 }

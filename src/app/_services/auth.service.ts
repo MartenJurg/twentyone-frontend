@@ -38,6 +38,7 @@ export class AuthService {
     // remove user from local storage and set current user to null
     sessionStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
+    this.userService.logout();
   }
 
 }

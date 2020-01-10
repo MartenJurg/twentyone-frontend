@@ -3,7 +3,7 @@ import {AuthService} from "../_services/auth.service";
 import {TokenStorageService} from "../_services/token-storage.service";
 import {UserService} from "../_services/user.service";
 import {Router} from "@angular/router";
-import {DataInfo} from "../data/data_info";
+import {DataInfo} from "../main/data/data_info";
 import {SkillingService} from "../_services/skilling.service";
 import {first} from "rxjs/operators";
 
