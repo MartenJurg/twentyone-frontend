@@ -31,9 +31,9 @@ const SWEATERS_KEY = 'Sweater';
   constructor(private skillService: SkillingService) { }
 
   public updateDataAndInventory() {
-    this.updateData();
-    this.updateInventory();
-  }
+      this.updateData();
+      this.updateInventory();
+    }
 
   public updateData() {
     this.skillService.getData(this.getUsername()).subscribe( data => {
